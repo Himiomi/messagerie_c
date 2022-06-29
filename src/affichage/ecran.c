@@ -3,6 +3,9 @@
 #include "../../Includes/file_manipulation/reading_file.h"
 #include "../../Includes/initializer/init_struct.h"
 #include "../../Includes/file_manipulation/add_in_file.h"
+#include "../../Includes/file_manipulation/read_pseudo.h"
+#include "../../Includes/reseau/communication.h"
+
 void liste_possibilite(){
     printf(CYAN1"Que souhaitez faire ?\n"DEFAULT);
     printf("1. Charger ses contacts\n");
@@ -15,6 +18,7 @@ void liste_possibilite(){
 }
 
 void accueil(){
+
     int choix_menu=0;
     list_contact *liste_contact_content= init_list_contact();
     printf(RED1"Bienvenu dans votre messagerie pour terminal :D\n"DEFAULT);
@@ -134,8 +138,14 @@ void accueil(){
                     add_contact(nouveau_contacte);
                     break;
                 case 5:
-                    printf("quit okay\n");
+                    printf("ip distante:\n");
+                    char * adresse_ip = malloc(1000*sizeof(char));
+                    scanf("%s",adresse_ip);
+                    printf("client");
+                    client(adresse_ip);
                 case 6:
+                    printf("server");
+                    server();
                     break;
                 default:
                     printf("Désolé mais votre choix n'est pas encore disponible, créez le alors :p\n");
